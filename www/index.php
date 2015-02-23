@@ -1,7 +1,10 @@
 <?php
- require __DIR__.'/models/news.php';
 
- $items = getNews();
+ require __DIR__.'/function/class_database.php';
+ require __DIR__.'/model/class_select.php';
 
- include __DIR__.'/views/index.php';
+ $db = new MysqlSelect();
+
+ include __DIR__.'/view/index.php';
+
 ?>

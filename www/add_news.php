@@ -1,16 +1,21 @@
 <?php
-require __DIR__.'/models/news.php';
- if(!empty($_POST['title'])){
-     $data['title'] = $_POST['title'];
- }
- if(!empty($_POST['text_news'])){
-     $data['text_news'] = $_POST['text_news'];
- }
+require __DIR__.'/function/class_database.php';
+require __DIR__.'/model/class_insert.php';
 
- if(isset($data['title']) && isset($data['text_news'])) {
-    insert_news($data);
+if(!empty($_POST['title'])){
+    $title = $_POST['title'];
+}
+if(!empty($_POST['text_news'])){
+    $text_news = $_POST['text_news'];
+}
+if(isset($title) && isset($text_news)) {
+
+    $db = new MysqlInsert($title, $text_news);
+    $db->sql_query();
+
+
     header('Location: index.php');
 
- }
- include __DIR__.'/views/add_news.php';
+}
+include __DIR__.'/view/add_news.php';
 ?>
