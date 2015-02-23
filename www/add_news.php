@@ -12,6 +12,7 @@ if(isset($title) && isset($text_news)) {
 
     $db = new MysqlInsert($title, $text_news);
     $db->sql_query();
+    $db->result_set();
 
 
     header('Location: index.php');
